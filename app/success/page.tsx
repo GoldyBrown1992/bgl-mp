@@ -97,26 +97,6 @@ export default function SuccessPage() {
             </div>
           </div>
 
-          {/* Additional Info */}
-          {type === 'subscription' && (
-            <div className="bg-gradient-to-br from-gold-500/10 to-gold-600/10 p-6 rounded-xl border border-gold-500 mb-8">
-              <h4 className="text-lg font-bold text-gold-500 mb-2">Subscription Benefits</h4>
-              <ul className="text-sm text-gray-300 space-y-1">
-                <li>• 25 Power Boxes every month</li>
-                <li>• Free delivery (save $10+ per box)</li>
-                <li>• Priority access to new flavors</li>
-                <li>• Cancel or pause anytime</li>
-              </ul>
-            </div>
-          )}
-
-          {/* Email Confirmation */}
-          <div className="bg-blue-900/20 border border-blue-500 p-4 rounded-lg mb-8">
-            <p className="text-blue-300 text-sm">
-              📧 A confirmation email has been sent to your inbox with all the details.
-            </p>
-          </div>
-
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             
@@ -133,29 +113,6 @@ export default function SuccessPage() {
                 Subscribe & Save
               </a>
             )}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="bg-gray-900 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">
-            Join thousands of strong women fueling their journey
-          </h3>
-          <p className="text-gray-400 mb-8">
-            Tag us @browngirllifts and @goldybrown to share your Power Box experience!
-          </p>
-          <div className="flex justify-center gap-6">
-            <a href="#" className="text-gold-500 hover:text-gold-400 transition-colors">
-              Instagram
-            </a>
-            <a href="#" className="text-gold-500 hover:text-gold-400 transition-colors">
-              TikTok
-            </a>
-            <a href="#" className="text-gold-500 hover:text-gold-400 transition-colors">
-              YouTube
-            </a>
           </div>
         </div>
       </section>
