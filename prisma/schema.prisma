@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Order {
+  id                String   @id @default(cuid())
+  email             String
+  stripePaymentIntentId String?
+  amount            Int      // Amount in cents
+  status            String   @default("pending") // pending, completed, cancelled
+  type              String   // "one-time" or "subscription"
+  orderDate         DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("orders")
+}
+
+model Subscription {
+  id                String   @id @default(cuid())
+  email             String
+  stripeSubscriptionId String @unique
+  stripeCustomerId  String
+  status            String   // active, cancelled, past_due, etc.
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("subscriptions")
+}
+
+model DailyInventory {
+  id        String   @id @default(cuid())
+  date      String   @unique // YYYY-MM-DD format
+  sold      Int      @default(0)
+  maxBoxes  Int      @default(20)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("daily_inventory")
+}
