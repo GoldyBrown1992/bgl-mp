@@ -9,7 +9,6 @@ export default function SuccessPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Header */}
       <header className="border-b border-gold-500 bg-black/95 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -27,31 +26,23 @@ export default function SuccessPage() {
         </div>
       </header>
 
-      {/* Success Content */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-2xl mx-auto text-center">
-          {/* Success Icon */}
           <div className="flex justify-center mb-8">
             <div className="p-6 bg-green-500/20 rounded-full">
               <CheckCircle className="w-16 h-16 text-green-500" />
             </div>
           </div>
 
-          {/* Title */}
           <h2 className="text-4xl font-bold mb-6">
             <span className="text-green-500">ORDER</span>
             <span className="text-white"> CONFIRMED!</span>
           </h2>
 
-          {/* Message */}
           <p className="text-xl text-gray-300 mb-8">
-            {type === 'subscription' 
-              ? 'Welcome to the Power Subscription! Your first box is on its way.'
-              : 'Your Power Box has been ordered and will be prepared fresh for delivery.'
-            }
+            Your Power Box has been ordered and will be prepared fresh for delivery.
           </p>
 
-          {/* Order Details */}
           <div className="bg-gray-900 p-8 rounded-xl border border-gray-700 mb-8">
             <h3 className="text-xl font-bold text-white mb-6">What happens next?</h3>
             
@@ -75,10 +66,7 @@ export default function SuccessPage() {
                 <div className="text-left">
                   <h4 className="font-bold text-white">Fast Delivery</h4>
                   <p className="text-gray-400 text-sm">
-                    {type === 'subscription' 
-                      ? 'Monthly delivery on the same date each month'
-                      : 'Your box will be delivered within 24-48 hours'
-                    }
+                    Your box will be delivered within 24-48 hours
                   </p>
                 </div>
               </div>
@@ -97,7 +85,6 @@ export default function SuccessPage() {
             </div>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             
               href="/"
@@ -105,14 +92,12 @@ export default function SuccessPage() {
             >
               Continue Shopping
             </a>
-            {type === 'one-time' && (
-              
-                href="/subscribe"
-                className="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-lg border border-gray-600 transition-all duration-300"
-              >
-                Subscribe & Save
-              </a>
-            )}
+            
+              href="/subscribe"
+              className="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-white font-bold rounded-lg border border-gray-600 transition-all duration-300"
+            >
+              Subscribe & Save
+            </a>
           </div>
         </div>
       </section>
