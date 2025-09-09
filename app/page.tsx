@@ -25,9 +25,14 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* HERO SECTION - FOOD + NUTRITION SIDE BY SIDE */}
+      {/* HERO SECTION - EVERYTHING IN ONE VIEW */}
       <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-16">
         <div className="container mx-auto px-4">
+          {/* SCARCITY INVENTORY AT THE TOP */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <ScarcityInventory />
+          </div>
+
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
             {/* LEFT SIDE - FOOD IMAGES */}
@@ -199,29 +204,12 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-
-              {/* CTA */}
-              <div className="text-center lg:text-left">
-                <button className="bg-gradient-to-r from-yellow-500 to-yellow-600 text-black px-8 py-4 rounded-xl text-xl font-bold hover:scale-105 transition-all">
-                  FUEL YOUR STRENGTH TODAY
-                </button>
-                <p className="text-gray-400 text-sm mt-4">
-                  Or subscribe for $499.99/month • Cancel anytime
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Inventory Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-md mx-auto">
-          <ScarcityInventory />
-        </div>
-      </section>
-
-      {/* Simple Pricing */}
+      {/* PRICING SECTION - SCROLL DOWN TO SEE */}
       <section id="pricing" className="bg-gray-900/50 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
