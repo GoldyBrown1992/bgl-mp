@@ -1,10 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { loadStripe } from '@stripe/stripe-js'
 import { ShoppingCart, CreditCard, Loader2 } from 'lucide-react'
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 interface CheckoutButtonProps {
   disabled?: boolean
@@ -34,39 +31,9 @@ export default function CheckoutButton({
     setLoading(true)
     
     try {
-      const stripe = await stripePromise
-      if (!stripe) throw new Error('Stripe failed to initialize')
-
       if (type === 'one-time') {
-        // Create payment intent for one-time purchase
-        const response = await fetch('/api/create-payment-intent', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, amount })
-        })
-
-        const { clientSecret, error } = await response.json()
-        
-        if (error) {
-          alert(error)
-          setLoading(false)
-          return
-        }
-
-        const { error: stripeError } = await stripe.confirmPayment({
-          elements: null,
-          clientSecret,
-          confirmParams: {
-            return_url: `${window.location.origin}/success?type=one-time`,
-            payment_method_data: {
-              billing_details: { email }
-            }
-          }
-        })
-
-        if (stripeError) {
-          alert(stripeError.message)
-        }
+        // For now, just show an alert - we'll implement Stripe later
+        alert('Payment feature coming soon! Thank you for your interest.')
       } else {
         // Handle subscription - redirect to subscription page
         window.location.href = `/subscribe?email=${encodeURIComponent(email)}`
@@ -80,7 +47,7 @@ export default function CheckoutButton({
   }
 
   const buttonClasses = type === 'subscription' 
-    ? 'bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-black' 
+    ? 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black' 
     : 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white'
 
   return (
@@ -92,7 +59,7 @@ export default function CheckoutButton({
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-gold-500 focus:outline-none"
+            className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:border-yellow-500 focus:outline-none"
             required
           />
         </div>
@@ -102,7 +69,7 @@ export default function CheckoutButton({
         onClick={handleCheckout}
         disabled={disabled || loading}
         className={`w-full px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none ${buttonClasses} ${
-          !disabled ? 'animate-pulse-gold shadow-lg' : ''
+          !disabled ? 'animate-pulse shadow-lg' : ''
         }`}
       >
         <div className="flex items-center justify-center gap-3">
