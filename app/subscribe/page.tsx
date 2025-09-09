@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Crown, Check, Star, Truck, Shield, Zap } from 'lucide-react'
 
-export default function SubscribePage() {
+function SubscribeContent() {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const searchParams = useSearchParams()
@@ -15,6 +15,8 @@ export default function SubscribePage() {
       setEmail(emailParam)
     }
   }, [searchParams])
+
+  // ... rest of your component code stays the same
 
   const handleSubscribe = async () => {
     if (!email) {
@@ -172,5 +174,12 @@ export default function SubscribePage() {
         </div>
       </section>
     </div>
+  )
+}
+export default function SubscribePage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SubscribeContent />
+    </Suspense>
   )
 }
