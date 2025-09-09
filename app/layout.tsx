@@ -1,26 +1,21 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Bebas_Neue, Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const bebasNeue = Bebas_Neue({ 
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-bebas'
+})
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
 
 export const metadata: Metadata = {
   title: 'Brown Girl Lifts x Goldy Brown - Power Box',
   description: 'Premium high-protein meal boxes for women who lift. 100g+ protein, 1,200 calories of pure fuel.',
-  keywords: 'protein meals, meal prep, fitness nutrition, brown girl lifts, power box',
-  authors: [{ name: 'Brown Girl Lifts x Goldy Brown' }],
-  openGraph: {
-    title: 'Brown Girl Lifts x Goldy Brown - Power Box',
-    description: 'Premium high-protein meal boxes for women who lift',
-    type: 'website',
-    locale: 'en_US',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Brown Girl Lifts x Goldy Brown - Power Box',
-    description: 'Premium high-protein meal boxes for women who lift',
-  },
-  robots: 'index, follow',
 }
 
 export default function RootLayout({
@@ -29,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
+      <body className="font-sans antialiased">
         <div id="__next">
           {children}
         </div>
