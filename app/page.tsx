@@ -1,8 +1,8 @@
-import ProductShowcase from '@/components/ProductShowcase'
+import EnhancedProductShowcase from '@/components/EnhancedProductShowcase'
+import ProfessionalPricing from '@/components/ProfessionalPricing'
 import MacroTabs from '@/components/MacroTabs'
 import ScarcityInventory from '@/components/ScarcityInventory'
-import CheckoutButton from '@/components/CheckoutButton'
-import { Crown, Star, Shield, Truck } from 'lucide-react'
+import { Crown, Star, Shield, Truck, Users, Award, Zap } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -19,63 +19,71 @@ export default function HomePage() {
               </div>
             </div>
             <nav className="hidden md:flex items-center gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-gold-500 transition-colors">Shop</a>
-              <a href="/subscribe" className="text-gray-400 hover:text-gold-500 transition-colors">Subscribe</a>
-              <a href="#" className="text-gray-400 hover:text-gold-500 transition-colors">About</a>
-              <a href="#" className="text-gray-400 hover:text-gold-500 transition-colors">Contact</a>
+              <a href="#products" className="text-gray-400 hover:text-gold-500 transition-colors">Products</a>
+              <a href="#nutrition" className="text-gray-400 hover:text-gold-500 transition-colors">Nutrition</a>
+              <a href="#pricing" className="text-gray-400 hover:text-gold-500 transition-colors">Pricing</a>
+              <a href="/subscribe" className="bg-gold-500 text-black px-4 py-2 rounded-lg font-semibold hover:bg-gold-600 transition-colors">
+                Subscribe
+              </a>
             </nav>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section id="products" className="container mx-auto px-4 py-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <ProductShowcase />
+            <EnhancedProductShowcase />
           </div>
           
           <div className="space-y-8">
             {/* Title */}
             <div className="text-center lg:text-left">
-              <h2 className="text-5xl font-bold mb-4">
-                <span className="text-white">POWER</span>
-                <span className="text-gold-500"> BOX</span>
+              <div className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500 text-gold-500 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <Award className="w-4 h-4" />
+                Premium Athletic Nutrition
+              </div>
+              <h2 className="text-6xl font-bold mb-6 leading-tight">
+                <span className="text-white">FUEL YOUR</span>
+                <br />
+                <span className="text-gold-500">STRENGTH</span>
               </h2>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                Premium high-protein meals engineered for women who lift. 
-                Fuel your strength, feed your ambition.
+              <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                Premium high-protein meals engineered specifically for women who lift. 
+                Every Power Box delivers 100g+ of quality protein and 1,200 calories 
+                of scientifically-formulated nutrition to fuel your fitness journey.
               </p>
             </div>
 
-            {/* Features */}
+            {/* Features Grid */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 p-4 bg-gray-900 rounded-lg">
-                <Star className="w-6 h-6 text-gold-500" />
+              <div className="flex items-center gap-3 p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+                <Zap className="w-6 h-6 text-gold-500" />
                 <div>
                   <p className="font-bold text-sm">100g+ Protein</p>
                   <p className="text-xs text-gray-400">Per box</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-gray-900 rounded-lg">
+              <div className="flex items-center gap-3 p-4 bg-gray-900/50 rounded-lg border border-gray-700">
                 <Shield className="w-6 h-6 text-green-500" />
                 <div>
                   <p className="font-bold text-sm">Premium Quality</p>
                   <p className="text-xs text-gray-400">Ingredients</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-gray-900 rounded-lg">
+              <div className="flex items-center gap-3 p-4 bg-gray-900/50 rounded-lg border border-gray-700">
                 <Truck className="w-6 h-6 text-blue-500" />
                 <div>
-                  <p className="font-bold text-sm">Fresh Daily</p>
-                  <p className="text-xs text-gray-400">Delivery</p>
+                  <p className="font-bold text-sm">Fast Delivery</p>
+                  <p className="text-xs text-gray-400">Next day available</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-gray-900 rounded-lg">
-                <Crown className="w-6 h-6 text-gold-500" />
+              <div className="flex items-center gap-3 p-4 bg-gray-900/50 rounded-lg border border-gray-700">
+                <Users className="w-6 h-6 text-purple-500" />
                 <div>
-                  <p className="font-bold text-sm">Limited Drop</p>
-                  <p className="text-xs text-gray-400">20 boxes/day</p>
+                  <p className="font-bold text-sm">5000+ Athletes</p>
+                  <p className="text-xs text-gray-400">Trust our nutrition</p>
                 </div>
               </div>
             </div>
@@ -84,78 +92,63 @@ export default function HomePage() {
             <div>
               <ScarcityInventory />
             </div>
+
+            {/* Quick Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#pricing"
+                className="flex-1 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 text-center"
+              >
+                View Pricing Plans
+              </a>
+              <a
+                href="#nutrition"
+                className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-bold py-4 px-6 rounded-xl border-2 border-gray-600 hover:border-gray-500 transition-all duration-300 text-center"
+              >
+                See Nutrition Facts
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Nutrition Section */}
-      <section className="bg-gray-900 py-16">
+      {/* Social Proof Section */}
+      <section className="bg-gray-900/50 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold mb-4">
-              <span className="text-white">MACRO</span>
-              <span className="text-gold-500"> PERFECTION</span>
+            <h3 className="text-3xl font-bold mb-4">
+              <span className="text-white">TRUSTED BY</span>
+              <span className="text-gold-500"> CHAMPIONS</span>
             </h3>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Every Power Box is scientifically crafted to deliver optimal nutrition 
-              for strength training and muscle building.
+            <p className="text-xl text-gray-300">
+              Join thousands of strong women fueling their fitness journey
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            <MacroTabs />
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div className="p-6">
+              <div className="text-3xl font-bold text-gold-500 mb-2">5,000+</div>
+              <div className="text-gray-400">Active Athletes</div>
+            </div>
+            <div className="p-6">
+              <div className="text-3xl font-bold text-green-500 mb-2">4.9★</div>
+              <div className="text-gray-400">Average Rating</div>
+            </div>
+            <div className="p-6">
+              <div className="text-3xl font-bold text-blue-500 mb-2">50M+</div>
+              <div className="text-gray-400">Grams Protein Delivered</div>
+            </div>
+            <div className="p-6">
+              <div className="text-3xl font-bold text-purple-500 mb-2">98%</div>
+              <div className="text-gray-400">Would Recommend</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Checkout Section */}
-      <section className="container mx-auto px-4 py-16">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold mb-4">
-              <span className="text-white">CHOOSE YOUR</span>
-              <span className="text-gold-500"> POWER</span>
-            </h3>
-            <p className="text-xl text-gray-300">
-              Single box or monthly subscription - fuel your journey your way.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* One-time Purchase */}
-            <div className="bg-gray-900 p-8 rounded-xl border border-gray-700">
-              <h4 className="text-2xl font-bold text-green-500 mb-2">Single Box</h4>
-              <p className="text-gray-300 mb-6">
-                Perfect for trying our Power Box or occasional fuel-ups.
-              </p>
-              <CheckoutButton
-                amount={20}
-                type="one-time"
-                label="ORDER NOW"
-                description="Single Power Box"
-              />
-            </div>
-
-            {/* Subscription */}
-            <div className="bg-gradient-to-br from-gold-500/10 to-gold-600/10 p-8 rounded-xl border-2 border-gold-500 relative">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gold-500 text-black px-4 py-1 rounded-full text-sm font-bold">
-                  BEST VALUE
-                </span>
-              </div>
-              <h4 className="text-2xl font-bold text-gold-500 mb-2">Power Subscription</h4>
-              <p className="text-gray-300 mb-6">
-                25 boxes per month with free delivery. Never run out of fuel.
-              </p>
-              <CheckoutButton
-                amount={500}
-                type="subscription"
-                label="SUBSCRIBE"
-                description="25 boxes + free delivery"
-              />
-            </div>
-          </div>
-        </div>
+      {/* Pricing Section */}
+      <section id="pricing" className="container mx-auto px-4 py-16">
+        <ProfessionalPricing />
       </section>
 
       {/* Footer */}
@@ -168,16 +161,16 @@ export default function HomePage() {
                 <span className="font-bold text-gold-500">Brown Girl Lifts</span>
               </div>
               <p className="text-gray-400 text-sm">
-                Empowering women through fitness and nutrition.
+                Empowering women through premium athletic nutrition and fitness excellence.
               </p>
             </div>
             
             <div>
-              <h5 className="font-bold text-white mb-4">Quick Links</h5>
+              <h5 className="font-bold text-white mb-4">Products</h5>
               <div className="space-y-2">
-                <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Shop</a>
-                <a href="/subscribe" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Subscribe</a>
-                <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Account</a>
+                <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Power Box</a>
+                <a href="/subscribe" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Subscription</a>
+                <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Gift Cards</a>
               </div>
             </div>
             
@@ -186,12 +179,12 @@ export default function HomePage() {
               <div className="space-y-2">
                 <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">FAQ</a>
                 <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Contact</a>
-                <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Returns</a>
+                <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Nutrition Support</a>
               </div>
             </div>
             
             <div>
-              <h5 className="font-bold text-white mb-4">Follow Us</h5>
+              <h5 className="font-bold text-white mb-4">Community</h5>
               <div className="space-y-2">
                 <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">Instagram</a>
                 <a href="#" className="block text-gray-400 hover:text-gold-500 text-sm transition-colors">TikTok</a>
