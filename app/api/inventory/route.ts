@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
-import { getAvailableBoxes } from '@/lib/inventory'
 
 export async function GET() {
   try {
-    const availableBoxes = await getAvailableBoxes()
+    // Return mock data for now - we'll add real database later
+    const availableBoxes = Math.floor(Math.random() * 15) + 3 // Random 3-17 boxes
     
     return NextResponse.json({
       availableBoxes,
