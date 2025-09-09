@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-white text-gray-800 antialiased;
   }
 }
 
@@ -19,20 +19,20 @@
   
   @keyframes pulse-gold {
     0%, 100% {
-      box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7);
+      box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.7);
     }
     50% {
-      box-shadow: 0 0 0 10px rgba(234, 179, 8, 0);
+      box-shadow: 0 0 0 10px rgba(251, 146, 60, 0);
     }
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent;
   }
   
   .backdrop-blur-glass {
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
   }
 }
 
